@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.rohitthebest.simpleofflinedictionary.ui.fragments.HomeFragment"
+        android:label="HomeFragment" />
+
+    <fragment
+        android:id="@+id/recentFragment"
+        android:name="com.rohitthebest.simpleofflinedictionary.ui.fragments.RecentFragment"
+        android:label="RecentFragment" />
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.rohitthebest.simpleofflinedictionary.ui.fragments.SavedFragment"
+        android:label="SavedFragment" />
+
+    <fragment
+        android:id="@+id/findOnlineFragment"
+        android:name="com.rohitthebest.simpleofflinedictionary.ui.fragments.FindOnlineFragment"
+        android:label="FindOnlineFragment" />
+</navigation>

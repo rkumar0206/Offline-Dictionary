@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!--  <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>-->
+
+    <color name="colorPrimary">#236ffa</color>
+    <color name="colorPrimaryDark">#2d6bde</color>
+    <color name="colorAccent">#236ffa</color>
+    <color name="primary_light">#a5c1ff</color>
+    <color name="recycler_list_color">#FFFFFF</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#e3e5e6</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="button">#3470dd</color>
+
+    <color name="color_Red">#F44336</color>
+    <color name="color_green">#2F6C08</color>
+    <color name="color_orange">#FF6D00</color>
+</resources>

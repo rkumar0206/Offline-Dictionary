@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Simple Offline Dictionary</string>
+    <string name="home">Home</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="recent">Recent</string>
+    <string name="find_online">Find Online</string>
+    <string name="search">Search</string>
+    <string name="insert_data_key">insert_data_KEY</string>
+</resources>
