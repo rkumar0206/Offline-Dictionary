@@ -1,3 +1,0 @@
- {"definitions": [{"type": "noun","definition": "complete lack of inhibition or restraint.","example": "she sings and sways with total abandon","image_url": null,"emoji": null}],"word": "abandon","pronunciation": "\u0259\u02c8band(\u0259)n"}
- {"definitions": [{"type": "noun","definition": "complete lack of inhibition or restraint.","example": "she sings and sways with total abandon","image_url": null,"emoji": null}],"word": "abandon","pronunciation": "\u0259\u02c8band(\u0259)n"}
- {"definitions": [{"type": "noun","definition": "complete lack of inhibition or restraint.","example": "she sings and sways with total abandon","image_url": null,"emoji": null}],"word": "abandon","pronunciation": "\u0259\u02c8band(\u0259)n"}
