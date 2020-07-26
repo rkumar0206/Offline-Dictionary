@@ -38,6 +38,10 @@ class SavedFragment : Fragment(R.layout.fragment_saved), HomeRVAdapter.OnItemCli
                 getAllBookmarkList()
             }
         }
+
+        closeSavedFrag.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
     }
 
     private fun getAllBookmarkList() {
