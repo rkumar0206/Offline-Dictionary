@@ -9,6 +9,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -16,6 +17,7 @@ import com.rohitthebest.simpleofflinedictionary.R
 import com.rohitthebest.simpleofflinedictionary.adapters.HomeRVAdapter
 import com.rohitthebest.simpleofflinedictionary.model.Word
 import com.rohitthebest.simpleofflinedictionary.others.Constants.SHARED_PREFS
+import com.rohitthebest.simpleofflinedictionary.others.Functions.Companion.closeKeyboard
 import com.rohitthebest.simpleofflinedictionary.ui.viewModels.DictionaryViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -23,7 +25,7 @@ import kotlinx.coroutines.*
 import java.util.*
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment(R.layout.fragment_home), HomeRVAdapter.OnItemClickListener {
 
     private val TAG = "HomeFragment"
     private val dictionaryViewModel: DictionaryViewModel by viewModels()
@@ -42,17 +44,20 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             showProgressBar()
             addWordsToDataBase()
         }
-
         if (flag) {
-
             showProgressBar()
             GlobalScope.launch {
-                delay(400)
+                delay(200)
                 withContext(Dispatchers.Main) {
 
                     getAllWordsList()
                 }
             }
+        }
+
+        homeFragClearEditText.setOnClickListener {
+
+            homeFragSearchET?.setText("")
         }
     }
 
@@ -128,9 +133,23 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 layoutManager = LinearLayoutManager(requireContext())
                 adapter = mAdapter
             }
-
+            mAdapter?.setOnClickListener(this)
         } catch (e: java.lang.Exception) {
             e.printStackTrace()
+        }
+
+    }
+
+    override fun onItemClick(word: Word) {
+
+        val gson = Gson()
+        val message = gson.toJson(word)
+
+        val action = HomeFragmentDirections.actionHomeFragmentToDisplayMeaningFragment(message)
+        findNavController().navigate(action)
+
+        CoroutineScope(Dispatchers.IO).launch {
+            closeKeyboard(requireActivity())
         }
 
     }
@@ -222,4 +241,5 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             e.printStackTrace()
         }
     }
+
 }

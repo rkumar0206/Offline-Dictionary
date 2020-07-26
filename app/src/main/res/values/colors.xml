@@ -6,7 +6,7 @@
 
     <color name="colorPrimary">#236ffa</color>
     <color name="colorPrimaryDark">#2d6bde</color>
-    <color name="colorAccent">#236ffa</color>
+    <color name="colorAccent">#D0FFFFFF</color>
     <color name="primary_light">#a5c1ff</color>
     <color name="recycler_list_color">#FFFFFF</color>
     <color name="primary_text">#212121</color>

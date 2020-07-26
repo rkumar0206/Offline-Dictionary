@@ -3,6 +3,7 @@ package com.rohitthebest.simpleofflinedictionary.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +13,26 @@ import kotlinx.android.synthetic.main.home_rv_layout.view.*
 
 class HomeRVAdapter : ListAdapter<Word, HomeRVAdapter.DictionaryViewHolder>(DiffUtilCallback()) {
 
-    inner class DictionaryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {}
+    var mListener : OnItemClickListener? = null
+
+    inner class DictionaryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener {
+
+        init {
+
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+
+            val pos = absoluteAdapterPosition
+            if(pos != RecyclerView.NO_POSITION && mListener != null){
+
+                mListener?.onItemClick(getItem(pos))
+            }
+        }
+
+    }
 
     class DiffUtilCallback : DiffUtil.ItemCallback<Word>() {
         override fun areItemsTheSame(oldItem: Word, newItem: Word): Boolean {
@@ -43,4 +63,14 @@ class HomeRVAdapter : ListAdapter<Word, HomeRVAdapter.DictionaryViewHolder>(Diff
             homeFragWordTV.text = getItem(position).word
         }
     }
+
+    interface OnItemClickListener{
+        fun onItemClick(word : Word)
+    }
+
+    fun setOnClickListener(listener: OnItemClickListener){
+
+        mListener = listener
+    }
+
 }
