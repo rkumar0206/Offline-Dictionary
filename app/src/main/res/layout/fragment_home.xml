@@ -67,14 +67,15 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homeFragRV"
         android:layout_width="0dp"
-        android:layout_height="601dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        app:layout_constraintTop_toBottomOf="@+id/homeFragSelectRandomBtn"
         tools:listitem="@layout/home_rv_layout">
 
     </androidx.recyclerview.widget.RecyclerView>
@@ -89,5 +90,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/homeFragRV" />
+
+    <Button
+        android:id="@+id/homeFragSelectRandomBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Select Random"
+        android:textAllCaps="false"
+        android:textColor="@color/recycler_list_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

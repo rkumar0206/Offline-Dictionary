@@ -23,6 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.*
 import java.util.*
+import kotlin.random.Random
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home), HomeRVAdapter.OnItemClickListener {
@@ -57,6 +58,31 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeRVAdapter.OnItemClick
 
             homeFragSearchET?.setText("")
         }
+
+        homeFragSelectRandomBtn.setOnClickListener {
+
+            selectRandomWord()
+        }
+    }
+
+    private fun selectRandomWord() {
+
+        dictionaryViewModel.getAllWords().observe(viewLifecycleOwner, Observer {
+
+            if (it.isNotEmpty()) {
+
+                val rand = Random.nextInt(0, it.size - 1)
+                Log.d(TAG, "$rand")
+
+                try {
+                    val word = it[rand]
+                    onItemClick(word)
+                }catch (e : Exception){
+                    e.printStackTrace()
+                }
+            }
+        })
+
     }
 
     private fun getAllWordsList() {
