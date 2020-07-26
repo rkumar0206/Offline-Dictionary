@@ -25,6 +25,9 @@ interface DictionaryDao {
     @Query("SELECT * FROM offlineDictionaryTable WHERE isBookMarked = :isBookmarked")
     fun getWordsByBookmark(isBookmarked: String): LiveData<List<Word>>
 
+    @Query("SELECT * FROM offlineDictionaryTable WHERE isInRecent = :isInRecent")
+    fun getWordsByRecent(isInRecent: String): LiveData<List<Word>>
+
     @Query("SELECT * FROM offlineDictionaryTable WHERE word LIKE :w || '%'")
     fun getAllWordsStartingWith(w: String): LiveData<List<Word>>
 

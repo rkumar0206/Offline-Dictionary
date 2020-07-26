@@ -20,7 +20,6 @@ import com.rohitthebest.simpleofflinedictionary.others.Constants.SHARED_PREFS
 import com.rohitthebest.simpleofflinedictionary.others.Functions.Companion.closeKeyboard
 import com.rohitthebest.simpleofflinedictionary.ui.viewModels.DictionaryViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_display_meaning.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.*
 import java.util.*
@@ -43,7 +42,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeRVAdapter.OnItemClick
         showProgressBar()
         if (!flag) {
             addWordsToDataBase()
-        }else{
+        } else {
 
             GlobalScope.launch {
                 delay(200)
@@ -141,6 +140,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeRVAdapter.OnItemClick
 
     override fun onItemClick(word: Word) {
 
+        word.isInRecent = getString(R.string.t)
+        dictionaryViewModel.insertWord(word)
+
         val gson = Gson()
         val message = gson.toJson(word)
 
@@ -199,6 +201,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeRVAdapter.OnItemClick
 
                 json.id = json.word
                 json.isBookMarked = getString(R.string.f)
+                json.isInRecent = getString(R.string.f)
+
                 dictionaryViewModel.insertWord(json)
 
                 if (i == lineList.size - 1) {

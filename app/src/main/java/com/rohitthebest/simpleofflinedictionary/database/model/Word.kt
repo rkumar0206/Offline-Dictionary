@@ -9,7 +9,8 @@ data class Word(
     val definitions: List<Definition>?,
     val pronunciation: String?,
     val word: String?,
-    var isBookMarked : String? = "false"
+    var isBookMarked : String? = "false",
+    var isInRecent : String? = "false"
 ) {
 
     @NonNull

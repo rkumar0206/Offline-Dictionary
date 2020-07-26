@@ -1,18 +1,12 @@
 package com.rohitthebest.simpleofflinedictionary.others
 
 import android.app.Activity
-import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
-import android.content.res.Resources
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
-import android.provider.OpenableColumns
 import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import com.rohitthebest.simpleofflinedictionary.others.Constants.NO_INTERNET_MESSAGE
 import com.rohitthebest.simpleofflinedictionary.util.CheckNetworkConnection
 import kotlinx.coroutines.Dispatchers

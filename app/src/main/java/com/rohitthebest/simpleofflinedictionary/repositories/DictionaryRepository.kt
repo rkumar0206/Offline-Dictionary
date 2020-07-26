@@ -18,6 +18,8 @@ class DictionaryRepository @Inject constructor(
 
     fun getWordsByBookmark(isBookmarked: String) = dao.getWordsByBookmark(isBookmarked)
 
+    fun getWordsByRecent(isInRecent: String) = dao.getWordsByRecent(isInRecent)
+
     fun getMeaningByWord(word: String) = dao.getMeaningByWord(word)
 
     fun getAllWordsStartingWith(ch: String) = dao.getAllWordsStartingWith(ch)

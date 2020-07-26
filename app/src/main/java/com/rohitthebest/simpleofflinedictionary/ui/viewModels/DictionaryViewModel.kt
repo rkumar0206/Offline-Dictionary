@@ -27,6 +27,8 @@ class DictionaryViewModel @ViewModelInject constructor(
 
     fun getWordsByBookmark(isBookmarked: String) = repository.getWordsByBookmark(isBookmarked)
 
+    fun getWordsByRecent(isInRecent: String) = repository.getWordsByRecent(isInRecent)
+
     fun getMeaningByWord(word: String) = repository.getMeaningByWord(word)
 
     fun getAllWordsStartingWith(ch: String) = repository.getAllWordsStartingWith(ch)

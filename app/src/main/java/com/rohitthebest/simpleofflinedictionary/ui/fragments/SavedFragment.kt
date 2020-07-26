@@ -124,6 +124,9 @@ class SavedFragment : Fragment(R.layout.fragment_saved), HomeRVAdapter.OnItemCli
 
     override fun onItemClick(word: Word) {
 
+        word.isInRecent = getString(R.string.t)
+        dictionaryViewModel.insertWord(word)
+
         val gson = Gson()
         val message = gson.toJson(word)
 
@@ -147,7 +150,7 @@ class SavedFragment : Fragment(R.layout.fragment_saved), HomeRVAdapter.OnItemCli
                     getString(R.string.t)
                 }
                 dictionaryViewModel.insertWord(it)
-                Log.d("DisplayMeaningFragment", "Bookmark State Changed..")
+                Log.d("SavedFragment", "Bookmark State Changed..")
             }
         } catch (e: Exception) {
             e.printStackTrace()
