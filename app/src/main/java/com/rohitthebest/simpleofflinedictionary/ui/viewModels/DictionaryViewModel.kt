@@ -3,7 +3,7 @@ package com.rohitthebest.simpleofflinedictionary.ui.viewModels
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.rohitthebest.simpleofflinedictionary.model.Word
+import com.rohitthebest.simpleofflinedictionary.database.model.Word
 import com.rohitthebest.simpleofflinedictionary.repositories.DictionaryRepository
 import kotlinx.coroutines.launch
 
@@ -24,6 +24,8 @@ class DictionaryViewModel @ViewModelInject constructor(
     }
 
     fun getAllWords() = repository.getAllWords()
+
+    fun getWordsByBookmark(isBookmarked: String) = repository.getWordsByBookmark(isBookmarked)
 
     fun getMeaningByWord(word: String) = repository.getMeaningByWord(word)
 

@@ -7,4 +7,6 @@
     <string name="search">Search</string>
     <string name="insert_data_key">insert_data_KEY</string>
     <string name="wordimage">wordImage</string>
+    <string name="f">false</string>
+    <string name="t">true</string>
 </resources>

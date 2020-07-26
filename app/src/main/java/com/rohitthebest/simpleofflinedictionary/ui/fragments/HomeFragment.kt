@@ -15,11 +15,12 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.rohitthebest.simpleofflinedictionary.R
 import com.rohitthebest.simpleofflinedictionary.adapters.HomeRVAdapter
-import com.rohitthebest.simpleofflinedictionary.model.Word
+import com.rohitthebest.simpleofflinedictionary.database.model.Word
 import com.rohitthebest.simpleofflinedictionary.others.Constants.SHARED_PREFS
 import com.rohitthebest.simpleofflinedictionary.others.Functions.Companion.closeKeyboard
 import com.rohitthebest.simpleofflinedictionary.ui.viewModels.DictionaryViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_display_meaning.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.*
 import java.util.*
@@ -39,13 +40,11 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeRVAdapter.OnItemClick
         mAdapter = HomeRVAdapter()
         loadData()
 
+        showProgressBar()
         if (!flag) {
-
-            showProgressBar()
             addWordsToDataBase()
-        }
-        if (flag) {
-            showProgressBar()
+        }else{
+
             GlobalScope.launch {
                 delay(200)
                 withContext(Dispatchers.Main) {
@@ -154,6 +153,25 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeRVAdapter.OnItemClick
 
     }
 
+    override fun onBookmarkBtnClicked(word: Word?) {
+
+        try {
+
+            word?.let {
+
+                it.isBookMarked = if (it.isBookMarked == getString(R.string.t)) {
+                    getString(R.string.f)
+                } else {
+                    getString(R.string.t)
+                }
+                dictionaryViewModel.insertWord(it)
+                Log.d("DisplayMeaningFragment", "Bookmark State Changed..")
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
     private fun addWordsToDataBase() {
 
         try {
@@ -180,6 +198,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeRVAdapter.OnItemClick
                 val json = gson.fromJson<Word>(word, type)
 
                 json.id = json.word
+                json.isBookMarked = getString(R.string.f)
                 dictionaryViewModel.insertWord(json)
 
                 if (i == lineList.size - 1) {

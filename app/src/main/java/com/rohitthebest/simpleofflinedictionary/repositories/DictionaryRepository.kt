@@ -1,7 +1,7 @@
 package com.rohitthebest.simpleofflinedictionary.repositories
 
 import com.rohitthebest.simpleofflinedictionary.database.dao.DictionaryDao
-import com.rohitthebest.simpleofflinedictionary.model.Word
+import com.rohitthebest.simpleofflinedictionary.database.model.Word
 import javax.inject.Inject
 
 class DictionaryRepository @Inject constructor(
@@ -15,6 +15,8 @@ class DictionaryRepository @Inject constructor(
     suspend fun deleteAll() = dao.deleteAll()
 
     fun getAllWords() = dao.getAllWordsMeaning()
+
+    fun getWordsByBookmark(isBookmarked: String) = dao.getWordsByBookmark(isBookmarked)
 
     fun getMeaningByWord(word: String) = dao.getMeaningByWord(word)
 

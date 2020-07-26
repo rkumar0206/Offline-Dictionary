@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.rohitthebest.simpleofflinedictionary.converters.DefinitionListConverter
 import com.rohitthebest.simpleofflinedictionary.database.dao.DictionaryDao
-import com.rohitthebest.simpleofflinedictionary.model.Word
+import com.rohitthebest.simpleofflinedictionary.database.model.Word
 
 @Database(
     entities = [Word::class],

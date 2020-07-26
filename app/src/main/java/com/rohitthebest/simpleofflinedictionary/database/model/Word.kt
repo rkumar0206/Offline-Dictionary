@@ -1,4 +1,4 @@
-package com.rohitthebest.simpleofflinedictionary.model
+package com.rohitthebest.simpleofflinedictionary.database.model
 
 import androidx.annotation.NonNull
 import androidx.room.Entity
@@ -8,7 +8,8 @@ import androidx.room.PrimaryKey
 data class Word(
     val definitions: List<Definition>?,
     val pronunciation: String?,
-    val word: String?
+    val word: String?,
+    var isBookMarked : String? = "false"
 ) {
 
     @NonNull

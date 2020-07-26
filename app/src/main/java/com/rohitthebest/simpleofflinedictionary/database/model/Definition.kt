@@ -1,4 +1,4 @@
-package com.rohitthebest.simpleofflinedictionary.model
+package com.rohitthebest.simpleofflinedictionary.database.model
 
 data class Definition(
     val definition: String?,

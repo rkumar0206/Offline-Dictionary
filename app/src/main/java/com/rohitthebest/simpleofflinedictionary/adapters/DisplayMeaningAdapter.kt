@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.rohitthebest.simpleofflinedictionary.R
-import com.rohitthebest.simpleofflinedictionary.model.Definition
+import com.rohitthebest.simpleofflinedictionary.database.model.Definition
 import com.rohitthebest.simpleofflinedictionary.others.Functions.Companion.isInternetAvailable
 import kotlinx.android.synthetic.main.display_meaning_rv_layout.view.*
 

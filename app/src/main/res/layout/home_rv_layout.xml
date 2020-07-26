@@ -20,10 +20,20 @@
         android:text="cat"
         android:textColor="@color/primary_text"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/homeFragBookmarkButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/homeFragBookmarkButton"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:backgroundTint="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/homeFragWordTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/homeFragWordTV"
+        app:srcCompat="@drawable/ic_baseline_bookmark_border_24" />
 
     <View
         android:id="@+id/divider"
@@ -31,7 +41,7 @@
         android:layout_height="1dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:background="#353535"
+        android:background="#D8353535"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

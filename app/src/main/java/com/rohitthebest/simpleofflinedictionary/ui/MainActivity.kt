@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.rohitthebest.simpleofflinedictionary.R
-import com.rohitthebest.simpleofflinedictionary.model.Word
+import com.rohitthebest.simpleofflinedictionary.database.model.Word
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
